@@ -45,6 +45,10 @@ public class ClothesListRecyclerview extends  RecyclerView.Adapter<ClothesListRe
     @Override
     public void onBindViewHolder(@NonNull ClothesListRecyclerview.Holders holder, int position) {
 
+        ClothesList clothesList = realmResults.get(position);
+        assert clothesList != null;
+        holder.setClothesList(clothesList, position);
+        holder.setListner();
     }
 
     @Override
@@ -93,6 +97,7 @@ public class ClothesListRecyclerview extends  RecyclerView.Adapter<ClothesListRe
                             realmResults.deleteFromRealm(position);
                             Toast.makeText( context,"List deleted", Toast.LENGTH_SHORT).show();
                             notifyItemRemoved(position);
+                            notifyItemRangeChanged(position, realmResults.size());
                             notifyDataSetChanged();
                         }
                     });

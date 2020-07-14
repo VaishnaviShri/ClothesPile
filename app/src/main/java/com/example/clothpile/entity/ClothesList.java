@@ -7,12 +7,12 @@ import io.realm.annotations.Required;
 public class ClothesList extends RealmObject {
 
     @PrimaryKey
-    private int listId;
-    @Required
+    private String listId;
+
     private int totalClothes;
-    @Required
+
     private double bill;
-    @Required
+
     private String roomNumber;
 
     public ClothesList(){
@@ -24,11 +24,11 @@ public class ClothesList extends RealmObject {
         this.totalClothes = totalClothes;
     }
 
-    public int getListId() {
+    public String getListId() {
         return listId;
     }
 
-    public void setListId(int listId) {
+    public void setListId(String listId) {
         this.listId = listId;
     }
 
