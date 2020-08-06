@@ -59,7 +59,7 @@ public class ClothesListRecyclerview extends  RecyclerView.Adapter<ClothesListRe
     public class Holders extends RecyclerView.ViewHolder{
 
         private int position;
-        private TextView room_number, total_clothes, bill;
+        private TextView room_number, total_clothes, bill, collection_date;
         Button delete_button, edit_button;
 
         public Holders(@NonNull View itemView) {
@@ -68,6 +68,7 @@ public class ClothesListRecyclerview extends  RecyclerView.Adapter<ClothesListRe
             room_number = itemView.findViewById(R.id.room_number);
             total_clothes = itemView.findViewById(R.id.total_clothes);
             bill = itemView.findViewById(R.id.bill);
+            collection_date = itemView.findViewById(R.id.collection_date);
             delete_button = itemView.findViewById(R.id.delete_button);
             edit_button = itemView.findViewById(R.id.edit_button);
 
@@ -76,13 +77,15 @@ public class ClothesListRecyclerview extends  RecyclerView.Adapter<ClothesListRe
         public void setClothesList(ClothesList clothesList, int position){
 
             this.position = position;
-            String roomNumber = clothesList.getRoomNumber();
+            String roomNumber = "Room Number:" + clothesList.getRoomNumber();
             String totalClothes = "Total Clothes : " + clothesList.getTotalClothes();
             String billAmount = "Bill : Rs." + clothesList.getBill();
+            String dateOfCollection = "Date of collection" + clothesList.getCollectionDate();
 
             room_number.setText(roomNumber);
             total_clothes.setText(totalClothes);
             bill.setText(billAmount);
+            collection_date.setText(dateOfCollection);
 
         }
 

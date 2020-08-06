@@ -1,5 +1,9 @@
 package com.example.clothpile.entity;
 
+import com.example.clothpile.app.UserUtil;
+
+import java.util.ArrayList;
+
 import io.realm.RealmObject;
 import io.realm.annotations.PrimaryKey;
 import io.realm.annotations.Required;
@@ -12,8 +16,11 @@ public class ClothesList extends RealmObject {
     private int totalClothes;
 
     private double bill;
+    private ArrayList<Integer> numberOfItems, priceList, itemTotalPrice;
+    private ArrayList<String> itemsList;
 
-    private String roomNumber;
+
+    private String roomNumber, collectionDate;
 
     public ClothesList(){
 
@@ -52,11 +59,31 @@ public class ClothesList extends RealmObject {
         return totalClothes;
     }
 
-    public void setTotalClothes(int totalClothes) {
-        this.totalClothes = totalClothes;
+    public void setTotalClothes() {
+        totalClothes = UserUtil.sumOfArray(numberOfItems);
     }
 
     public void  calculateBill(){
-        setBill(totalClothes*10);
+        for(int i = 0; i < numberOfItems.size(); i++){
+            itemTotalPrice.add(i, numberOfItems.get(i) * priceList.get(i));
+        }
+        setBill(UserUtil.sumOfArray(itemTotalPrice));
+    }
+
+    public void setNumberOfItems(ArrayList<Integer> numberOfItems) {
+        this.numberOfItems = numberOfItems;
+        setTotalClothes();
+    }
+
+    public void setPriceList(ArrayList<Integer> priceList) {
+        this.priceList = priceList;
+    }
+
+    public void setCollectionDate(String collectionDate) {
+        this.collectionDate = collectionDate;
+    }
+
+    public String getCollectionDate() {
+        return collectionDate;
     }
 }

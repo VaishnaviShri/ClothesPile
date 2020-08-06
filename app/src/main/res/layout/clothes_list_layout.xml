@@ -21,13 +21,20 @@
         android:id="@+id/room_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Room Number"
+        android:text="Room Number: vk 398L"
         android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/collection_date"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/room_number"
+            android:layout_marginTop="10dp"
+            android:text="Date of collection : 5/11"/>
         <TextView
             android:id="@+id/total_clothes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/room_number"
+            android:layout_below="@id/collection_date"
             android:layout_marginTop="10dp"
             android:text="Total clothes : 10"/>
         <View
