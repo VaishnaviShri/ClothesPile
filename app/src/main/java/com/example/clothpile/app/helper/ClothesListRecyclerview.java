@@ -1,4 +1,4 @@
-package com.example.clothpile.ui;
+package com.example.clothpile.app.helper;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -9,16 +9,17 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.clothpile.R;
-import com.example.clothpile.entity.ClothesList;
+import com.example.clothpile.app.MainActivity;
+import com.example.clothpile.app.entity.ClothesList;
+import com.example.clothpile.app.fragments.AddEditListFragment;
 
-import io.realm.OrderedRealmCollection;
 import io.realm.Realm;
-import io.realm.RealmRecyclerViewAdapter;
 import io.realm.RealmResults;
 
 public class ClothesListRecyclerview extends  RecyclerView.Adapter<ClothesListRecyclerview.Holders> {
@@ -48,7 +49,7 @@ public class ClothesListRecyclerview extends  RecyclerView.Adapter<ClothesListRe
         ClothesList clothesList = realmResults.get(position);
         assert clothesList != null;
         holder.setClothesList(clothesList, position);
-        holder.setListner();
+        holder.setListener(clothesList.getListId());
     }
 
     @Override
@@ -89,7 +90,7 @@ public class ClothesListRecyclerview extends  RecyclerView.Adapter<ClothesListRe
 
         }
 
-        public void setListner(){
+        public void setListener(final String listId){
 
             delete_button.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -111,6 +112,9 @@ public class ClothesListRecyclerview extends  RecyclerView.Adapter<ClothesListRe
             edit_button.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    AppCompatActivity activity = (AppCompatActivity) view.getContext();
+                    Fragment fragment = new AddEditListFragment(listId);
+                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.frame, fragment).addToBackStack(null).commit();
 
                 }
             });

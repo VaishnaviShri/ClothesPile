@@ -1,31 +1,31 @@
-package com.example.clothpile.ui;
+package com.example.clothpile.app.helper;
 
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.clothpile.R;
 
-import java.util.ArrayList;
+import io.realm.RealmList;
 
 public class ItemAdapter extends BaseAdapter {
 
     private Context mContext;
-    private ArrayList<String> mClothList;
-    ArrayList<Integer> numberOfItems;
+    private RealmList<String> mClothList;
+    private RealmList<Integer> numberOfItems;
 
-    public ItemAdapter(Context context, ArrayList<String> itemsList, ArrayList<Integer> numberOfItems){
+    public ItemAdapter(Context context, RealmList<String> itemsList, RealmList<Integer> numberOfItems){
         super();
         mContext = context;
         mClothList = itemsList;
         this.numberOfItems = numberOfItems;
     }
+
     @Override
     public int getCount() {
         return mClothList.size();
@@ -54,6 +54,8 @@ public class ItemAdapter extends BaseAdapter {
 
         // Set the title and button name
         txtSchoolTitle.setText(mClothList.get(position));
+
+        elegantNumberButton.setNumber(String.valueOf(numberOfItems.get(position)));
 
         elegantNumberButton.setOnValueChangeListener(new ElegantNumberButton.OnValueChangeListener() {
             @Override

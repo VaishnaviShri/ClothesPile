@@ -1,4 +1,4 @@
-package com.example.clothpile.database;
+package com.example.clothpile.app.database;
 
 import android.app.Application;
 

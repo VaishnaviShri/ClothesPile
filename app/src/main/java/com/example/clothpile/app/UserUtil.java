@@ -7,13 +7,14 @@ import io.realm.RealmList;
 
 public class UserUtil {
 
-    public ArrayList<String> clothItemsList;
-    public ArrayList<Integer> clothItemsPriceList, numberOfItems;
+    public RealmList<String> clothItemsList;
+    public RealmList<Integer> clothItemsPriceList, numberOfItems;
     public String roomNumber;
 
     public UserUtil(){
-        clothItemsList = new ArrayList<>(Arrays.asList("T-shirt,pants,bedsheets,towel".split(",")));
-        clothItemsPriceList = new ArrayList<>(Arrays.asList(5, 7, 10, 8));
+        clothItemsList = new RealmList<>("T-shirt,pants,bedsheets,towel".split(","));
+        clothItemsPriceList = new RealmList<>(5, 7, 10, 8);
+        numberOfItems = new RealmList<>(0,0,0,0);
         roomNumber = "VK 398 L";
     }
 
