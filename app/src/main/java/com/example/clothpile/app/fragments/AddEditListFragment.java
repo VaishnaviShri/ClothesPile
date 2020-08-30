@@ -1,6 +1,7 @@
 package com.example.clothpile.app.fragments;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,11 +18,13 @@ import androidx.annotation.Nullable;
 
 import com.cepheuen.elegantnumberbutton.view.ElegantNumberButton;
 import com.example.clothpile.R;
+import com.example.clothpile.app.MainActivity;
 import com.example.clothpile.app.UserUtil;
 import com.example.clothpile.app.entity.ClothesList;
 import com.example.clothpile.app.helper.ItemAdapter;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import java.util.Calendar;
@@ -87,6 +90,8 @@ public class AddEditListFragment extends Fragment {
             @Override
             public void onClick(View view) {
                 insertRecords();
+                AppCompatActivity activity = (AppCompatActivity) getContext();
+                activity.getSupportFragmentManager().beginTransaction().replace(R.id.frame, new LaundryListsFragment()).addToBackStack(null).commit();
 
             }
         });

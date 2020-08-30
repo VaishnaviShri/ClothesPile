@@ -26,7 +26,6 @@
         android:layout_marginRight="32dp"
         android:layout_marginBottom="32dp"
         android:src="@drawable/ic_plus_circle"
-        android:tint="@color/black"
         app:fabSize="normal"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
