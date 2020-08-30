@@ -89,10 +89,14 @@ public class AddEditListFragment extends Fragment {
         addListButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                insertRecords();
-                AppCompatActivity activity = (AppCompatActivity) getContext();
-                activity.getSupportFragmentManager().beginTransaction().replace(R.id.frame, new LaundryListsFragment()).addToBackStack(null).commit();
+                if(UserUtil.sumOfArray(numberOfItems) == 0 || collectionDate == null){
+                    Toast.makeText(getContext(), "Fields empty!", Toast.LENGTH_SHORT).show();
 
+                } else {
+                    insertRecords();
+                    AppCompatActivity activity = (AppCompatActivity) getContext();
+                    activity.getSupportFragmentManager().beginTransaction().replace(R.id.frame, new LaundryListsFragment()).addToBackStack(null).commit();
+                }
             }
         });
         pickDateButton.setOnClickListener(new View.OnClickListener() {
@@ -131,13 +135,6 @@ public class AddEditListFragment extends Fragment {
 
         final String id = UUID.randomUUID().toString();
 
-
-        if(UserUtil.sumOfArray(numberOfItems) == 0 || collectionDate == null){
-            Toast.makeText(getContext(), "Fields empty!", Toast.LENGTH_SHORT).show();
-            return;
-        }
-
-        
         realmAsyncTask = myRealm.executeTransactionAsync(
                 new Realm.Transaction() {
                     @RequiresApi(api = Build.VERSION_CODES.KITKAT)
