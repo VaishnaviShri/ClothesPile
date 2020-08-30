@@ -77,14 +77,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_margin="10dp"
-            android:text="Date"
+            android:text="Choose date:"
             android:textStyle="bold" />
         <Button
             android:id="@+id/pick_date_btn"
+            android:background="@drawable/ic_baseline_calendar_today_24"
             android:layout_margin="10dp"
             android:layout_width="40dp"
-            android:layout_height="40dp"
-            android:text="o"/>
+            android:layout_height="40dp"/>
 
     </LinearLayout>
 

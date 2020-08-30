@@ -68,7 +68,7 @@ public class ItemAdapter extends BaseAdapter {
                 }
 
 
-                Toast.makeText(mContext, "update!", Toast.LENGTH_SHORT).show();
+                //Toast.makeText(mContext, "update!", Toast.LENGTH_SHORT).show();
             }
         });
 
