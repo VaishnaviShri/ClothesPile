@@ -61,7 +61,12 @@ public class ItemAdapter extends BaseAdapter {
             @Override
             public void onValueChange(ElegantNumberButton view, int oldValue, int newValue) {
                 //Log.d(TAG, String.format("oldValue: %d   newValue: %d", oldValue, newValue));
-                numberOfItems.set(position, newValue);
+                try {
+                    numberOfItems.set(position, newValue);
+                } catch (Exception e){
+                    e.printStackTrace();
+                }
+
 
                 Toast.makeText(mContext, "update!", Toast.LENGTH_SHORT).show();
             }
