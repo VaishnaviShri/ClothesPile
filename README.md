@@ -2,10 +2,10 @@
 
 ## An android app to help college students manage their laundry bills
 
-![clothpile home](Screenshots/home.jpeg)
+![clothpile home](Screenshots/ss_home.jpg)
 
-![clothpile add](Screenshots/add.jpeg)
+![clothpile add](Screenshots/ss_add.jpg)
 
-![clothpile calendar](Screenshots/calendar.jpeg)
+![clothpile calendar](Screenshots/ss_calendar.jpg)
 
 
