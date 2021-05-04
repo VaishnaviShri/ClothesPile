@@ -7,5 +7,8 @@
 ![clothpile add](/Screenshots/ss_add.jpg)
 
 ![clothpile calendar](/Screenshots/ss_calendar.jpg)
+<p>
+    <img src="/Screenshots/ss_calendar.jpg" width="220" height="240" />
+</p>
 
 
